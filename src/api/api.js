@@ -11,7 +11,7 @@ const recipesSearch = "recipes/complexSearch";
 export const getRecipeInfo = async (recipeId) => {
   try {
     const response = await fetch(
-      endpoint + `recipes/${recipeId}/information` + `?apiKey=${apiKey}`
+      endpoint + `recipes/${recipeId}/information?apiKey=${apiKey}`
     );
     const json = await response.json();
     return json;
@@ -20,12 +20,12 @@ export const getRecipeInfo = async (recipeId) => {
   }
 };
 
-export const searchRecipes = async (searchTerm) => {
+export const searchRecipes = async (searchTerm, limit) => {
   try {
     const response = await fetch(
       endpoint +
         recipesSearch +
-        `?apiKey=${apiKey}&query=${searchTerm}&number=5`
+        `?apiKey=${apiKey}&query=${searchTerm}&number=${limit}`
     );
     const json = await response.json();
     return json["results"];

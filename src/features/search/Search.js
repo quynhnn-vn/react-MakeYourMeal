@@ -1,37 +1,29 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { searchRecipes } from "../../api/api";
-import { selectSearchTerm } from "./searchSlice";
+import { NavLink } from "react-router-dom";
 
 export const Search = () => {
-    // const dispatch = useDispatch();
-    // const [searchTermLocal, setSearchTermLocal] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-    // const searchTerm = useSelector(selectSearchTerm);
-    // const [recipes, setRecipes] = useState([]);
-    
-    // const handleTermChange = (e) => {
-    //     setSearchTermLocal(e.target.value);
-    // }
-
-    
-
-    // const handleSubmit = () => {
-    //     searchRecipes(searchTerm).then(recipes => setRecipes(recipes.map(recipe => <Recipe recipe={recipe} />)));
-    // }
-    // return (
-    //     <header>
-    //         <div>
-    //             <p><span>Cuisine</span>At Home</p>
-    //         </div>
-    //         <form>
-    //             <input type="text"
-    //             placeholder="What would you like to cook?"
-    //             value={searchTerm}/>
-    //         </form>
-    //     </header>
-    // )
-    return (
-        <></>
-    )
-}
+  return (
+    <header>
+      <div>
+        <p>
+          <span>Cuisine</span>At Home
+        </p>
+      </div>
+      <form>
+        <input
+          type="text"
+          placeholder="What would you like to cook?"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button>
+          <NavLink className="search" to={`/search/${searchTerm}`}>
+            Search
+          </NavLink>
+        </button>
+      </form>
+    </header>
+  );
+};

@@ -1,30 +1,28 @@
 import "./Components.css";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Recipe } from "../features/recipes/Recipe";
 import { getRandomRecipes } from "../api/api";
 import {
   NavLink,
   useParams,
-  useHistory,
 } from "react-router-dom";
 
 export const Breakfast = ({ tags, limit }) => {
   const { page } = useParams();
-  const history = useHistory();
   const p = parseInt(page, 10);
   const [recipes, setRecipes] = useState([]);
 
-  const renderRecipes = () => {
+  const renderRecipes = useCallback(() => {
     getRandomRecipes(tags, limit).then((recipes) =>
       setRecipes(
         recipes.map((recipe) => <Recipe recipe={recipe} key={recipe.id} tags={tags} />)
       )
     );
-  };
+  }, [tags, limit]);
 
   useEffect(() => {
     renderRecipes();
-  }, []);
+  }, [renderRecipes]);
 
   const handleViewMore = () => {
     renderRecipes();

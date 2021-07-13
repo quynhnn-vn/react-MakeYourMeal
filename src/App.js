@@ -22,10 +22,14 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Search />
         <Switch>
           <Route path={`/${tags.appetizes}/:page`}>
             <Redirect to={`/${tags.appetizes}/1`} />
             <Recipes tags={tags.appetizes} limit={30} />
+          </Route>
+          <Route path={`/search/:term`}>
+            <Recipes limit={3}/>
           </Route>
           {/* <Route path={`/${tags.breakfast}`}>
             <Breakfast tags={tags.breakfast} limit={10} />
