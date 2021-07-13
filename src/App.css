@@ -1,4 +1,33 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body * {
+  background-attachment: scroll;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 35px;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+:root {
+  --red: #8F555C;
+  --yellow: #dea249;
+  --dark-yellow: #936b30;
+  --light-yellow: #E7BD7F;
+  --gray: #898989;
+  --dark-gray: #626262;
+  --dark-blue: #2A2A2C;
+  --gold: #e8b56a;
+}
+.root {
+  font-size: 16px;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -36,4 +65,4 @@
   100% {
     transform: translateY(0px);
   }
-}
+} */

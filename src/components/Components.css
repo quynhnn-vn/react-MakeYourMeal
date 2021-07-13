@@ -1,0 +1,45 @@
+.collection {
+  margin: 50px;
+  padding: 20px;
+}
+.banner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.banner .line {
+  width: 40%;
+  margin: auto;
+  border-bottom: 1px solid var(--red);
+}
+.collection h2 span:first-child {
+  color: var(--dark-blue);
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.btn {
+  border: solid 1px var(--red);
+  background-color: #ffff;
+}
+
+.btn:hover {
+    background-color: var(--red);
+    transition: 0.4s;
+    color: #ffffff;
+}
+
+.pull-right .view-more {
+  padding: 5px 10px;
+  color: var(--red);
+  font-size: 18px;
+}
+.pull-right .view-more:hover {
+    color: #ffffff;
+}
+.collection-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
