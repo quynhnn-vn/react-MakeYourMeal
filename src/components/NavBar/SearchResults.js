@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { searchRecipes } from "../../api/api";
-import { Recipe } from "../recipes/Recipe";
+import { RecipePreview } from "../RecipePreviews/RecipePreview";
 
 export const SearchResults = ({ limit }) => {
   const { term } = useParams();
@@ -10,7 +10,7 @@ export const SearchResults = ({ limit }) => {
   const renderSearchRecipes = useCallback(() => {
     searchRecipes(term, limit).then((recipes) =>
       setRecipes(
-        recipes.map((recipe) => <Recipe recipe={recipe} key={recipe.id} />)
+        recipes.map((recipe) => <RecipePreview recipe={recipe} key={recipe.id} />)
       )
     );
   }, [term, limit]);

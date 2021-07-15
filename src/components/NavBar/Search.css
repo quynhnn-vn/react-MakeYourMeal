@@ -1,0 +1,54 @@
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--red);
+    min-height: 100px;
+    max-height: fit-content;
+}
+header h1 {
+    color: #ffffff;
+    padding-left: 20px;
+    margin: 0;
+}
+header h1:hover {
+    color: var(--gold);
+}
+header form {
+    margin-bottom: 10px;
+    margin-right: 50px;
+    width: 50%;
+}
+header form input {
+    width: 500px;
+    height: 40px;
+    padding: 0 10px;
+    border: solid 1px var(--red);
+}
+header form button {
+    height: 42px;
+    background-color: var(--dark-yellow);
+    text-decoration: none;
+    border: solid 1px var(--dark-yellow);
+    padding: 0 10px;
+}
+header form button:disabled {
+    background-color: var(--gray);
+    color: #ffffff;
+}
+header form button .search {
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+    header form {
+        margin-right: 0;
+    }
+    header form input {
+        width: 60%
+    }
+}

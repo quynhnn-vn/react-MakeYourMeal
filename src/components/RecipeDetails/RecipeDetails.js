@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { getRecipeInfo } from "../../api/api";
 import ReactHtmlParser from "react-html-parser";
 import { NavLink } from "react-router-dom";
+// import { RecipeSimilar } from "./RecipeSimilar";
 
 export const RecipeDetails = () => {
   const { id } = useParams();
@@ -80,8 +81,8 @@ export const RecipeDetails = () => {
         <div className="ingredient">
           <h2>INGREDIENTS</h2>
           <ul>
-            {ingredients.map((ingredient) => (
-              <li>{ingredient}</li>
+            {ingredients.map((ingredient, index) => (
+              <li key={index}>{ingredient}</li>
             ))}
           </ul>
         </div>
@@ -89,11 +90,12 @@ export const RecipeDetails = () => {
           <h2>INSTRUCTIONS</h2>
           <ul>
             {instructions.map((instruction) =>
-              instruction.map((step) => <li>{step}</li>)
+              instruction.map((step, index) => <li key={index}>{step}</li>)
             )}
           </ul>
         </div>
       </div>
+      {/* <RecipeSimilar id={recipe.id} /> */}
     </div>
   );
 };

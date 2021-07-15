@@ -1,10 +1,10 @@
-import "./Recipe.css";
+import "./RecipePreview.css";
 import React, { useCallback, useEffect, useState } from "react";
-import { Recipe } from "./Recipe";
+import { RecipePreview } from "./RecipePreview";
 import { getRandomRecipes } from "../../api/api";
 import { NavLink, useParams, useHistory } from "react-router-dom";
 
-export const Recipes = ({ limit }) => {
+export const RecipeList = ({ limit }) => {
   const { tags, page } = useParams();
   const history = useHistory();
   const p = parseInt(page, 10);
@@ -14,7 +14,7 @@ export const Recipes = ({ limit }) => {
     getRandomRecipes(tags, limit).then((recipes) =>
       setRecipes(
         recipes.map((recipe) => (
-          <Recipe recipe={recipe} key={recipe.id} tags={tags} />
+          <RecipePreview recipe={recipe} key={recipe.id} tags={tags} />
         ))
       )
     );
@@ -57,7 +57,7 @@ export const Recipes = ({ limit }) => {
         <span>{tags.split("%2C").join(" / ").toUpperCase()}</span>
       </h2>
       <div className="collection-items">
-        {p ? recipes.slice(12 * (p - 1), 12 * p) : recipes}
+        {p ? recipes.slice(9 * (p - 1), 9 * p) : recipes}
       </div>
       <div className="btn-back-next">
         {renderNext()}

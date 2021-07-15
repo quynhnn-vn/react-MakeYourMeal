@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.css";
-import { Recipes } from "./features/recipes/Recipes";
-import { Search } from "./features/search/Search";
-import { Home } from "./components/Home";
-import { SearchResults } from "./features/search/SearchResults";
+import { RecipeList } from "./components/RecipePreviews/RecipeList";
+import { Search } from "./components/NavBar/Search";
+import { HomePage } from "./components/HomePage/HomePage";
+import { SearchResults } from "./components/NavBar/SearchResults";
+import { RecipeDetails } from "./components/RecipeDetails/RecipeDetails";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
 } from "react-router-dom";
-import { RecipeDetails } from "./features/recipes/RecipeDetails";
 
 function App() {
   const tags = {
@@ -26,16 +26,16 @@ function App() {
             <SearchResults limit={3} />
           </Route>
           <Route path={`/tags/:tags/:page`}>
-            <Recipes limit={30} />
+            <RecipeList limit={10} />
           </Route>
           <Route path="/recipe/:id/:title">
             <RecipeDetails tags={tags} />
           </Route>
           <Route path="/home">
-            <Home tags={tags} />
+            <HomePage tags={tags} />
           </Route>
           <Route exact path="/">
-            <Home tags={tags} />
+            <HomePage tags={tags} />
           </Route>
         </Switch>
       </Router>
