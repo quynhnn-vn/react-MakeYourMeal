@@ -4,9 +4,9 @@ import { Recipe } from "../features/recipes/Recipe";
 import { getRandomRecipes } from "../api/api";
 import { NavLink, useParams } from "react-router-dom";
 
-export const Appetizes = ({ tags, limit }) => {
+export const Appetizer = ({ tags, limit }) => {
   const { page } = useParams();
-  const p = parseInt(page, 10);
+  const p = isNaN(page) ? 0 : parseInt(page, 10);
   const [recipes, setRecipes] = useState([]);
 
   const renderRecipes = useCallback(() => {
@@ -28,14 +28,14 @@ export const Appetizes = ({ tags, limit }) => {
   };
 
   return (
-    <div className="collection" aria-label="Appetizes / Snacks">
+    <div className="collection" aria-label="Appetizer / Snack">
       <h2 className="banner">
-        <span>APPETIZES / SNACKS </span>
+        <span>APPETIZER / SNACK </span>
         <span className="line"></span>
         <span>
           <button className="btn pull-right" onClick={handleViewMore}>
-            <NavLink className="view-more" to={`/${tags}/${p + 1}`}>
-              view more appetizes / snacks{" "}
+            <NavLink className="view-more" to={`/tags/${tags}/${p + 1}`}>
+              view more appetizer / snacks{" "}
             </NavLink>
           </button>
         </span>

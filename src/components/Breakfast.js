@@ -9,7 +9,7 @@ import {
 
 export const Breakfast = ({ tags, limit }) => {
   const { page } = useParams();
-  const p = parseInt(page, 10);
+  const p = isNaN(page) ? 0 : parseInt(page, 10);
   const [recipes, setRecipes] = useState([]);
 
   const renderRecipes = useCallback(() => {
@@ -35,7 +35,7 @@ export const Breakfast = ({ tags, limit }) => {
         <span className="line"></span>
         <span className="btn-collection">
           <button className="pull-right" onClick={handleViewMore}>
-            <NavLink className="navlink" to={`/${tags}/${p + 1}`}>view more breakfast / brunch </NavLink>
+            <NavLink className="navlink" to={`/tags/${tags}/${p + 1}`}>view more breakfast / brunch </NavLink>
           </button>
         </span>
       </h2>

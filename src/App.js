@@ -2,21 +2,19 @@ import React from "react";
 import "./App.css";
 import { Recipes } from "./features/recipes/Recipes";
 import { Search } from "./features/search/Search";
-import { Breakfast } from "./components/Breakfast";
-import { Appetizes } from "./components/Appetizes";
-import { Lunch } from "./components/Lunch";
 import { Home } from "./components/Home";
+import { SearchResults } from "./features/search/SearchResults";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
 } from "react-router-dom";
+import { RecipeDetails } from "./features/recipes/RecipeDetails";
 
 function App() {
   const tags = {
     breakfast: ["breakfast", "brunch"].join("%2C"),
-    appetizes: ["appetizes", "snacks"].join("%2C"),
+    appetizer: ["appetizer", "snack"].join("%2C"),
     lunch: ["lunch", "dinner"].join("%2C"),
   };
   return (
@@ -24,19 +22,18 @@ function App() {
       <Router>
         <Search />
         <Switch>
-          <Route path={`/${tags.appetizes}/:page`}>
-            <Redirect to={`/${tags.appetizes}/1`} />
-            <Recipes tags={tags.appetizes} limit={30} />
-          </Route>
           <Route path={`/search/:term`}>
-            <Recipes limit={3}/>
+            <SearchResults limit={3} />
           </Route>
-          {/* <Route path={`/${tags.breakfast}`}>
-            <Breakfast tags={tags.breakfast} limit={10} />
+          <Route path={`/tags/:tags/:page`}>
+            <Recipes limit={30} />
           </Route>
-          <Route path={`/${tags.lunch}`}>
-            <Lunch tags={tags.lunch} limit={10} />
-          </Route> */}
+          <Route path="/recipe/:id/:title">
+            <RecipeDetails tags={tags} />
+          </Route>
+          <Route path="/home">
+            <Home tags={tags} />
+          </Route>
           <Route exact path="/">
             <Home tags={tags} />
           </Route>

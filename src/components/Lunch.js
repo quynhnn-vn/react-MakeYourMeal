@@ -6,7 +6,7 @@ import { NavLink, useParams } from "react-router-dom";
 
 export const Lunch = ({ tags, limit }) => {
   const { page } = useParams();
-  const p = parseInt(page, 10);
+  const p = isNaN(page) ? 0 : parseInt(page, 10);
   const [recipes, setRecipes] = useState([]);
   const renderRecipes = useCallback(() => {
     getRandomRecipes(tags, limit).then((recipes) =>
@@ -33,7 +33,7 @@ export const Lunch = ({ tags, limit }) => {
         <span className="line"></span>
         <span className="btn-collection">
           <button className="pull-right" onClick={handleViewMore}>
-            <NavLink className="navlink" to={`/${tags}/${p + 1}`}>
+            <NavLink className="navlink" to={`/tags/${tags}/${p + 1}`}>
               view more lunch / dinner{" "}
             </NavLink>
           </button>
