@@ -1,16 +1,9 @@
 import "./Search.css";
 import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const Search = () => {
-  const history = useHistory();
   const [searchTerm, setSearchTerm] = useState("");
-
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      history.push(`/search/${searchTerm}`);
-    }
-  };
 
   const renderSearchButton = () => {
     if (searchTerm) {
@@ -37,7 +30,6 @@ export const Search = () => {
           placeholder="What would you like to cook?"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyPress={handleKeyPress}
         />
         {renderSearchButton()}
       </form>
