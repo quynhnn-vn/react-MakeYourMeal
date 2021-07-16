@@ -6,7 +6,6 @@ header {
     background-color: var(--red);
     min-height: 100px;
     max-height: fit-content;
-    padding-bottom: 10px;
 }
 header .link-home h1 {
     color: #ffffff;
@@ -43,7 +42,7 @@ header .tags-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    max-width: 35%;
+    max-width: 30%;
     row-gap: 10px;
 }
 header .tags-container .tags-item span {
@@ -67,8 +66,9 @@ header .tags-container .tags-item span:hover {
         margin-left: 0;
     }
     header .tags-container {
-        justify-content: left;
+        justify-content: space-between;
         row-gap: 5px;
+        max-width: 70%;
     }
 
 }

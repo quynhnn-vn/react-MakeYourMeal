@@ -44,23 +44,23 @@ export const Search = ({ tags }) => {
       </form>
       <div className="tags-container">
           <NavLink className="tags-item" to={`/tags/${tags.breakfast}/${p + 1}`}>
-            <FontAwesomeIcon icon={faCoffee} color="white" size="2x" />
+            <FontAwesomeIcon icon={faCoffee} color="white" size="lg" />
             <span>Breakfast/Burnch</span>
           </NavLink>
           <NavLink className="tags-item" to={`/tags/${tags.appetizer}/${p + 1}`}>
-            <FontAwesomeIcon icon={faCookieBite} color="white" size="2x" />
+            <FontAwesomeIcon icon={faCookieBite} color="white" size="lg" />
             <span>Appetizer/Snack</span>
           </NavLink>
           <NavLink className="tags-item" to={`/tags/${tags.lunch}/${p + 1}`}>
-            <FontAwesomeIcon icon={faHamburger} color="white" size="2x" />
+            <FontAwesomeIcon icon={faHamburger} color="white" size="lg" />
             <span>Lunch/Dinner</span>
           </NavLink>
           <NavLink className="tags-item" to={`/tags/${tags.desserts}/${p + 1}`}>
-            <FontAwesomeIcon icon={faIceCream} color="white" size="2x" />
+            <FontAwesomeIcon icon={faIceCream} color="white" size="lg" />
             <span>Desserts</span>
           </NavLink>
           <NavLink className="tags-item" to={`/tags/${tags.drinks}/${p + 1}`}>
-            <FontAwesomeIcon icon={faCocktail} color="white" size="2x" />
+            <FontAwesomeIcon icon={faCocktail} color="white" size="lg" />
             <span>Drinks</span>
           </NavLink>
         </div>
