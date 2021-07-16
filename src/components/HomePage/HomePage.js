@@ -12,17 +12,6 @@ export const HomePage = ({ tags }) => {
   const [lunch, setLunch] = useState([]);
 
   const renderRecipes = useCallback(() => {
-    getRandomRecipes(tags.appetizer, 3).then((recipes) =>
-      setAppetizer(
-        recipes.map((recipe) => (
-          <RecipePreview
-            recipe={recipe}
-            key={recipe.id}
-            tags={tags.appetizer}
-          />
-        ))
-      )
-    );
     getRandomRecipes(tags.breakfast, 3).then((recipes) =>
       setBreakfast(
         recipes.map((recipe) => (
@@ -30,6 +19,17 @@ export const HomePage = ({ tags }) => {
             recipe={recipe}
             key={recipe.id}
             tags={tags.breakfast}
+          />
+        ))
+      )
+    );
+    getRandomRecipes(tags.appetizer, 3).then((recipes) =>
+      setAppetizer(
+        recipes.map((recipe) => (
+          <RecipePreview
+            recipe={recipe}
+            key={recipe.id}
+            tags={tags.appetizer}
           />
         ))
       )
@@ -53,23 +53,6 @@ export const HomePage = ({ tags }) => {
 
   return (
     <div>
-      <div className="collection" aria-label="Appetizer / Snack">
-        <h2 className="banner">
-          <span>APPETIZER / SNACK </span>
-          <span className="line"></span>
-          <span>
-            <button className="btn pull-right" onClick={handleViewMore}>
-              <NavLink
-                className="view-more"
-                to={`/tags/${tags.appetizer}/${p + 1}`}
-              >
-                view more appetizer / snacks
-              </NavLink>
-            </button>
-          </span>
-        </h2>
-        <div className="collection-items">{appetizer}</div>
-      </div>
       <div className="collection" aria-label="Breakfast / Brunch">
         <h2 className="banner">
           <span>BREAKFAST / BRUNCH </span>
@@ -86,6 +69,23 @@ export const HomePage = ({ tags }) => {
           </span>
         </h2>
         <div className="collection-items">{breakfast}</div>
+      </div>
+      <div className="collection" aria-label="Appetizer / Snack">
+        <h2 className="banner">
+          <span>APPETIZER / SNACK </span>
+          <span className="line"></span>
+          <span>
+            <button className="btn pull-right" onClick={handleViewMore}>
+              <NavLink
+                className="view-more"
+                to={`/tags/${tags.appetizer}/${p + 1}`}
+              >
+                view more appetizer / snack
+              </NavLink>
+            </button>
+          </span>
+        </h2>
+        <div className="collection-items">{appetizer}</div>
       </div>
       <div className="collection" aria-label="Lunch / Dinner">
         <h2 className="banner">

@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 import { getRecipeInfo } from "../../api/api";
 import ReactHtmlParser from "react-html-parser";
 import { NavLink } from "react-router-dom";
-// import { RecipeSimilar } from "./RecipeSimilar";
 
 export const RecipeDetails = () => {
   const { id } = useParams();
@@ -48,7 +47,7 @@ export const RecipeDetails = () => {
               TAGS:{" "}
               {types.map((type) => (
                 <NavLink to={`/tags/${type}/1`}>
-                  <span>{`#${type}, `}</span>
+                  <span>{`#${type} `}</span>
                 </NavLink>
               ))}
             </div>
@@ -56,7 +55,11 @@ export const RecipeDetails = () => {
               DIETS:{" "}
               {diets.length === 0
                 ? "None"
-                : diets.map((diet) => <span>{`${diet}, `}</span>)}
+                : diets.map((diet) => (
+                    <NavLink className="tags" to={`/tags/${diet}/1`}>
+                      <span>{`#${diet} `}</span>
+                    </NavLink>
+                  ))}
             </div>
           </div>
           <div className="other-info">
@@ -82,7 +85,10 @@ export const RecipeDetails = () => {
           <h2>INGREDIENTS</h2>
           <ul>
             {ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
+              <li key={index}>
+                <input type="checkbox" />
+                {ingredient}
+              </li>
             ))}
           </ul>
         </div>
@@ -95,7 +101,6 @@ export const RecipeDetails = () => {
           </ul>
         </div>
       </div>
-      {/* <RecipeSimilar id={recipe.id} /> */}
     </div>
   );
 };

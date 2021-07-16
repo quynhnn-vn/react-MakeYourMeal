@@ -18,8 +18,20 @@
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
-  padding-left: 20px;
+  margin-left: 20px;
 }
+@media only screen and (max-width: 600px) {
+  .collection .banner {
+    justify-content: center;
+  }
+  .collection .banner .line {
+    display: none;
+  }
+  .collection h2 span:first-child {
+    margin-left: 0px;
+  }
+}
+
 .btn {
   border: solid 1px var(--red);
   background-color: #ffff;

@@ -20,7 +20,7 @@ export const SearchResults = ({ limit }) => {
   }, [renderSearchRecipes]);
 
   if (term && recipes.length === 0) {
-    return <div className="error">No recipe result matching "{term}".</div>;
+    return <p className="error">No recipes matching "{term}"</p>;
   }
   return (
     <div className="collection">

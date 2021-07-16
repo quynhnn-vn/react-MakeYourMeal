@@ -23,3 +23,17 @@ body {
 .root {
   font-size: 16px;
 }
+footer {
+  background-color: var(--red);
+  height: 50px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  gap: 5px;
+}
+footer a {
+  text-decoration: none;
+  color: #ffffff;
+}

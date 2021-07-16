@@ -14,7 +14,7 @@ export const RecipeList = ({ limit }) => {
     getRandomRecipes(tags, limit).then((recipes) =>
       setRecipes(
         recipes.map((recipe) => (
-          <RecipePreview recipe={recipe} key={recipe.id} tags={tags} />
+          <RecipePreview recipe={recipe} key={recipe.id} tags={tags ? tags : ""} />
         ))
       )
     );
@@ -41,20 +41,11 @@ export const RecipeList = ({ limit }) => {
       );
     }
   };
-
-  if (!recipes) {
-    return (
-      <div className="error">
-        Oh no! It looks like my daily quota of Spoonacular API requests is full.
-        Please come back tomorrow.{" "}
-      </div>
-    );
-  }
-
+  
   return (
     <div className="collection">
       <h2 className="banner">
-        <span>{tags.split("%2C").join(" / ").toUpperCase()}</span>
+        {tags ? <span>{tags.split("%2C").join(" / ").toUpperCase()}</span> : <span></span>}
       </h2>
       <div className="collection-items">
         {p ? recipes.slice(9 * (p - 1), 9 * p) : recipes}

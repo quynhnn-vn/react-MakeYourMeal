@@ -17,7 +17,10 @@
   text-align: left;
   margin: auto 0;
   color: var(--red);
-  margin-top: 10px;
+  margin-top: 30px;
+}
+.description-container .description p b {
+  color: var(--red);
 }
 .description-container .description p a {
   color: var(--red);
@@ -25,22 +28,12 @@
 }
 .other-info-container {
   padding: 20px;
-  background-color: var(--dark-blue);
+  background-color: var(--red);
   color: #ffffff;
   width: 100%;
   display: flex;
   flex-grow: row;
   justify-content: space-between;
-}
-@media only screen and (max-width: 600px) {
-  .other-info-container {
-      flex-direction: column;
-      min-height: fit-content;
-  }
-  .other-info-container .other-info {
-    flex-direction: column;
-    min-height: fit-content;
-  }
 }
 .other-info-container .other-info {
   display: flex;
@@ -49,13 +42,15 @@
   color: var(--gold);
   row-gap: 15px;
 }
+.other-info-container .other-info .tags span:hover{
+  text-decoration: underline;
+}
 .other-info-container .other-info span {
   text-transform: capitalize;
   color: #ffffff;
 }
 
 .instruction-container {
-  margin-left: 20px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -75,11 +70,32 @@
 .instruction-container .instruction {
   max-width: 800px;
 }
+.ingredient ul {
+  padding-left: 15px;
+}
 .ingredient li {
-  list-style-type: "🤯";
-  padding-inline-start: 1ch;
+  list-style-type: none;
+}
+.ingredient li input {
+  margin-right: 7px;
+}
+.ingredient li input:checked {
+  filter: hue-rotate(180deg);
 }
 .instruction li {
   list-style-type: "👉";
   padding-inline-start: 1ch;
+}
+@media only screen and (max-width: 600px) {
+  .other-info-container {
+      flex-direction: column;
+      min-height: fit-content;
+  }
+  .other-info-container .other-info {
+    flex-direction: column;
+    min-height: fit-content;
+  }
+  .description-container {
+    margin: 0 20px;
+  }
 }

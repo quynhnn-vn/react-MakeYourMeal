@@ -8,25 +8,19 @@ const endpoint = "https://api.spoonacular.com/";
 const randomFind = "recipes/random";
 const recipesSearch = "recipes/complexSearch";
 
-export const getSimilarRecipes = async (recipeId, limit) => {
-  try {
-    const response = await fetch(
-      endpoint + `recipes/${recipeId}/similar?apiKey=${apiKey}&number=${limit}`
-    );
-    const json = await response.json();
-    return json;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const getRecipeInfo = async (recipeId) => {
   try {
     const response = await fetch(
       endpoint + `recipes/${recipeId}/information?apiKey=${apiKey}`
     );
-    const json = await response.json();
-    return json;
+    if (response.ok) {
+      const json = await response.json();
+      return json;
+    } else {
+      alert(
+        "Oh no! It looks like the daily quota of Spoonacular API requests is full. Please come back tomorrow :(."
+      );
+    }
   } catch (err) {
     console.log(err);
   }
@@ -39,8 +33,14 @@ export const searchRecipes = async (searchTerm, limit) => {
         recipesSearch +
         `?apiKey=${apiKey}&query=${searchTerm}&number=${limit}`
     );
-    const json = await response.json();
-    return json["results"];
+    if (response.ok) {
+      const json = await response.json();
+      return json["results"];
+    } else {
+      alert(
+        "Oh no! It looks like the daily quota of Spoonacular API requests is full. Please come back tomorrow :(."
+      );
+    }
   } catch (err) {
     console.log(err);
   }
@@ -51,8 +51,14 @@ export const getRandomRecipes = async (tags, limit) => {
     const response = await fetch(
       endpoint + randomFind + `?apiKey=${apiKey}&number=${limit}&tags=${tags}`
     );
-    const json = await response.json();
-    return json["recipes"];
+    if (response.ok) {
+      const json = await response.json();
+      return json["recipes"];
+    } else {
+      alert(
+        "Oh no! It looks like the daily quota of Spoonacular API requests is full. Please come back tomorrow :(."
+      );
+    }
   } catch (err) {
     console.log(err);
   }

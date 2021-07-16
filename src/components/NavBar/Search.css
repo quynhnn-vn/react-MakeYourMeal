@@ -6,22 +6,21 @@ header {
     background-color: var(--red);
     min-height: 100px;
     max-height: fit-content;
+    padding-bottom: 10px;
 }
-header h1 {
+header .link-home h1 {
     color: #ffffff;
-    padding-left: 20px;
-    margin: 0;
+    margin-left: 20px;
+
 }
-header h1:hover {
+header .link-home h1:hover {
     color: var(--gold);
 }
 header form {
     margin-bottom: 10px;
-    margin-right: 50px;
-    width: 50%;
 }
 header form input {
-    width: 500px;
+    width: 300px;
     height: 40px;
     padding: 0 10px;
     border: solid 1px var(--red);
@@ -40,15 +39,36 @@ header form button:disabled {
 header form button .search {
     color: #ffffff;
 }
-
+header .tags-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 35%;
+    row-gap: 10px;
+}
+header .tags-container .tags-item span {
+    margin-left: 5px;
+    text-decoration: none;
+    color: #ffffff;
+}
+header .tags-container .tags-item span:hover {
+    color: var(--gold);
+}
+.error {
+    color: var(--red);
+    text-align: center;
+}
 @media only screen and (max-width: 600px) {
     header {
         flex-direction: column;
+        justify-content: center;
     }
-    header form {
-        margin-right: 0;
+    header .link-home h1 {
+        margin-left: 0;
     }
-    header form input {
-        width: 60%
+    header .tags-container {
+        justify-content: left;
+        row-gap: 5px;
     }
+
 }
