@@ -23,10 +23,10 @@ function App() {
         <Search tags={tags} />
         <Switch>
           <Route path={`/search/:term`}>
-            <SearchResults limit={3} />
+            <SearchResults limit={9} />
           </Route>
           <Route path={`/tags/:tags/:page`}>
-            <RecipeList limit={10} />
+            <RecipeList limit={9} />
           </Route>
           <Route path="/recipe/:id/:title">
             <RecipeDetails tags={tags} />

@@ -52,7 +52,7 @@ export const RecipeList = ({ limit }) => {
       </div>
       <div className="btn-back-next">
         {renderNext()}
-        <p> {`${p} / ${Math.floor(recipes.length / 10)}`} </p>
+        <p> {`${p} / ${Math.floor(recipes.length / 9)}`} </p>
         <button className="btn" onClick={history.goBack}>
           Previous
         </button>
