@@ -36,7 +36,7 @@ export const RecipeDetails = () => {
   return (
     <div className="details">
       <div className="description-container">
-        <img src={recipe.image} alt="" />
+        {recipe.image ? <img src={recipe.image} alt="" />: <img src="./error.jpg" alt=""/>}
         <div className="description">
           <h2>{recipe.title}</h2>
           <p>{ReactHtmlParser(recipe.summary)}</p>
