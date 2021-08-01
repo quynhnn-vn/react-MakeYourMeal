@@ -45,61 +45,59 @@ export const HomePage = ({ tags }) => {
 
   useEffect(() => {
     renderRecipes();
+    return () => {
+      setAppetizer([]);
+      setBreakfast([]);
+      setLunch([]);
+    }
   }, [renderRecipes]);
-
-  const handleViewMore = () => {
-    renderRecipes();
-  };
 
   return (
     <div>
-      <div className="collection" aria-label="Breakfast / Brunch">
-        <h2 className="banner">
+      <div className="collection" aria-label="collection">
+        <h2 className="banner" aria-label="banner">
           <span>BREAKFAST / BRUNCH </span>
           <span className="line"></span>
           <span>
-            <button className="btn pull-right" onClick={handleViewMore}>
-              <NavLink
-                className="view-more"
-                to={`/tags/${tags.breakfast}/${p + 1}`}
-              >
-                view more breakfast / brunch
-              </NavLink>
-            </button>
+            <NavLink
+              className="view-more"
+              aria-label="view-more"
+              to={`/tags/${tags.breakfast}/${p + 1}`}
+            >
+              view more breakfast / brunch
+            </NavLink>
           </span>
         </h2>
         <div className="collection-items">{breakfast}</div>
       </div>
-      <div className="collection" aria-label="Appetizer / Snack">
-        <h2 className="banner">
+      <div className="collection" aria-label="collection">
+        <h2 className="banner" aria-label="banner">
           <span>APPETIZER / SNACK </span>
           <span className="line"></span>
           <span>
-            <button className="btn pull-right" onClick={handleViewMore}>
-              <NavLink
-                className="view-more"
-                to={`/tags/${tags.appetizer}/${p + 1}`}
-              >
-                view more appetizer / snack
-              </NavLink>
-            </button>
+            <NavLink
+              className="view-more"
+              aria-label="view-more"
+              to={`/tags/${tags.appetizer}/${p + 1}`}
+            >
+              view more appetizer / snack
+            </NavLink>
           </span>
         </h2>
         <div className="collection-items">{appetizer}</div>
       </div>
-      <div className="collection" aria-label="Lunch / Dinner">
-        <h2 className="banner">
+      <div className="collection" aria-label="collection">
+        <h2 className="banner" aria-label="banner">
           <span>LUNCH / DINNER</span>
           <span className="line"></span>
           <span>
-            <button className="btn pull-right" onClick={handleViewMore}>
-              <NavLink
-                className="view-more"
-                to={`/tags/${tags.lunch}/${p + 1}`}
-              >
-                view more lunch / dinner
-              </NavLink>
-            </button>
+            <NavLink
+              className="view-more"
+              aria-label="view-more"
+              to={`/tags/${tags.lunch}/${p + 1}`}
+            >
+              view more lunch / dinner
+            </NavLink>
           </span>
         </h2>
         <div className="collection-items">{lunch}</div>

@@ -14,7 +14,11 @@ export const RecipeList = ({ limit }) => {
     getRandomRecipes(tags, limit).then((recipes) =>
       setRecipes(
         recipes.map((recipe) => (
-          <RecipePreview recipe={recipe} key={recipe.id} tags={tags ? tags : ""} />
+          <RecipePreview
+            recipe={recipe}
+            key={recipe.id}
+            tags={tags ? tags : ""}
+          />
         ))
       )
     );
@@ -33,21 +37,23 @@ export const RecipeList = ({ limit }) => {
       );
     } else {
       return (
-        <button className="btn">
-          <NavLink className="next" to={`/tags/${tags}/${p + 1}`}>
-            Next
-          </NavLink>
-        </button>
+        <NavLink className="next" to={`/tags/${tags}/${p + 1}`}>
+          Next
+        </NavLink>
       );
     }
   };
-  
+
   return (
     <div className="collection">
       <h2 className="banner">
-        {tags ? <span>{tags.split("%2C").join(" / ").toUpperCase()}</span> : <span></span>}
+        {tags ? (
+          <span>{tags.split("%2C").join(" / ").toUpperCase()}</span>
+        ) : (
+          <span></span>
+        )}
       </h2>
-      <div className="collection-items">
+      <div className="collection-items" aria-label="collection-items">
         {p ? recipes.slice(9 * (p - 1), 9 * p) : recipes}
       </div>
       <div className="btn-back-next">

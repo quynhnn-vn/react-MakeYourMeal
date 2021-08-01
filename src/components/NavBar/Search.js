@@ -17,11 +17,9 @@ export const Search = ({ tags }) => {
   const renderSearchButton = () => {
     if (searchTerm) {
       return (
-        <button>
           <NavLink className="search" to={`/search/${searchTerm}`}>
             Search
           </NavLink>
-        </button>
       );
     } else {
       return <button disabled>Search</button>;
@@ -50,7 +48,7 @@ export const Search = ({ tags }) => {
       <div className="tags-container">
         <NavLink className="tags-item" to={`/tags/${tags.breakfast}/${p + 1}`}>
           <FontAwesomeIcon icon={faCoffee} color="white" size="lg" />
-          <span>Breakfast/Burnch</span>
+          <span>Breakfast/Brunch</span>
         </NavLink>
         <NavLink className="tags-item" to={`/tags/${tags.appetizer}/${p + 1}`}>
           <FontAwesomeIcon icon={faCookieBite} color="white" size="lg" />

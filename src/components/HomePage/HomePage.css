@@ -32,28 +32,22 @@
   }
 }
 
-.btn {
+.view-more {
   border: solid 1px var(--red);
   background-color: #ffff;
-}
-
-.btn:hover {
-    background-color: var(--red);
-    transition: 0.4s;
-    color: #ffffff;
-}
-
-.pull-right .view-more {
   padding: 5px 10px;
   color: var(--red);
   font-size: 18px;
+  font-weight: lighter;
 }
-.pull-right .view-more:hover {
-    color: #ffffff;
+.view-more:hover {
+  background-color: var(--red);
+  transition: 0.4s;
+  color: #ffffff;
 }
 .collection-items {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }

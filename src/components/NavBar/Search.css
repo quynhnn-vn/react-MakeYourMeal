@@ -16,27 +16,26 @@ header .link-home h1:hover {
     color: var(--gold);
 }
 header form {
+    height: 40px;
     margin-bottom: 10px;
 }
 header form input {
     width: 300px;
-    height: 40px;
+    height: 100%;
     padding: 0 10px;
     border: solid 1px var(--red);
 }
-header form button {
-    height: 42px;
+header form .search {
     background-color: var(--dark-yellow);
-    text-decoration: none;
+    color: #ffffff;
     border: solid 1px var(--dark-yellow);
-    padding: 0 10px;
+    padding: 9px 10px;
 }
 header form button:disabled {
     background-color: var(--gray);
     color: #ffffff;
-}
-header form button .search {
-    color: #ffffff;
+    border: solid 1px var(--gray);
+    padding: 10px 10px;
 }
 header .tags-container {
     display: flex;

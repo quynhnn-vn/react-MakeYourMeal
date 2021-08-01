@@ -14,7 +14,7 @@
     object-fit: cover;
 }
 .item-container {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .item-container h3 {
     color: var(--gold);
@@ -43,7 +43,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .btn-back-next {
     display: flex;
     flex-direction: row-reverse;
@@ -54,6 +53,19 @@
     font-size: 13px;
     margin: auto 10px;
 }
-.btn .next {
+.btn {
+    cursor: pointer;
+    color: var(--dark-blue);
+    background-color: #ffffff;
+    border: solid 1px var(--red);
+}
+.btn:hover {
+    color: #ffffff;
+    background-color: var(--red);
+}
+.btn:disabled {
+    color: var(--gray);
+}
+.next {
     color: var(--dark-blue);
 }
