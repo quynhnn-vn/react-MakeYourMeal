@@ -1,6 +1,5 @@
 import "./RecipePreview.css";
 import React from "react";
-import ReactHtmlParser from "react-html-parser";
 import { NavLink } from "react-router-dom";
 
 export const RecipePreview = ({ recipe, tags }) => {
@@ -17,11 +16,11 @@ export const RecipePreview = ({ recipe, tags }) => {
       ) : (
         <img src="./error.jpg" alt="" />
       )}
-      <div className="item-container" aria-label="item-container">
+      <span className="item-container" aria-label="item-container">
         {tags && <h3>{tags.split("%2C").join(" / ").toUpperCase()}</h3>}
         <h2>{recipe.title}</h2>
-        {recipe.summary && <p>{ReactHtmlParser(recipe.summary)}</p>}
-      </div>
+        {recipe.summary && <p>{recipe.summary.replace(/(<([^>]+)>)/gi, "")}</p>}
+      </span>
     </NavLink>
   );
 };
