@@ -37,3 +37,9 @@ footer a {
   text-decoration: none;
   color: #ffffff;
 }
+.list-placeholder {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}

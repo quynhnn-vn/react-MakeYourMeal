@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import { getRecipeInfo } from "../../api/api";
 import ReactHtmlParser from "react-html-parser";
 import { NavLink } from "react-router-dom";
+import ReactPlaceholder from "react-placeholder";
+import "react-placeholder/lib/reactPlaceholder.css";
 
 export const RecipeDetails = () => {
   const { id } = useParams();
@@ -12,6 +14,7 @@ export const RecipeDetails = () => {
   const [diets, setDiets] = useState([]);
   const [instructions, setInstructions] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const renderRecipeInfo = useCallback(() => {
     getRecipeInfo(id).then((recipe) => {
@@ -26,21 +29,46 @@ export const RecipeDetails = () => {
       setIngredients(
         recipe.extendedIngredients.map((ingredient) => ingredient.original)
       );
+      setIsLoading(false);
     });
   }, [id]);
 
   useEffect(() => {
     renderRecipeInfo();
+    return () => {
+      setIsLoading(true);
+    };
   }, [renderRecipeInfo]);
 
   return (
     <div className="details">
       <div className="description-container">
-        {recipe.image ? <img src={recipe.image} alt="" />: <img src="./error.jpg" alt=""/>}
-        <div className="description">
-          <h2>{recipe.title}</h2>
-          <p>{ReactHtmlParser(recipe.summary)}</p>
-        </div>
+        <ReactPlaceholder
+          ready={!isLoading}
+          type="rect"
+          color="#f0e3e4"
+          style={{ width: "400px", height: "300px", margin: "20px" }}
+          showLoadingAnimation={true}
+        >
+          {recipe.image ? (
+            <img src={recipe.image} alt="" />
+          ) : (
+            <img src="./error.jpg" alt="" />
+          )}
+        </ReactPlaceholder>
+        <ReactPlaceholder
+          ready={!isLoading}
+          type="text"
+          rows={20}
+          color="#d6cdcd"
+          style={{ width: "400px", height: "200px", margin: "20px" }}
+          showLoadingAnimation={true}
+        >
+          <div className="description">
+            <h2>{recipe.title}</h2>
+            <p>{ReactHtmlParser(recipe.summary)}</p>
+          </div>
+        </ReactPlaceholder>
         <div className="other-info-container">
           <div className="other-info">
             <div className="tags">
@@ -83,22 +111,39 @@ export const RecipeDetails = () => {
       <div className="instruction-container">
         <div className="ingredient">
           <h2>INGREDIENTS</h2>
-          <ul>
-            {ingredients.map((ingredient, index) => (
-              <li key={index}>
-                <input type="checkbox" />
-                {ingredient}
-              </li>
-            ))}
-          </ul>
+          <ReactPlaceholder
+            ready={!isLoading}
+            type="text"
+            rows={10}
+            color="#d6cdcd"
+            style={{ width: "300px", height: "200px", margin: "20px" }}
+            showLoadingAnimation={true}
+          >
+            <ul>
+              {ingredients.map((ingredient, index) => (
+                <li key={index}>
+                  <input type="checkbox" />
+                  {ingredient}
+                </li>
+              ))}
+            </ul>
+          </ReactPlaceholder>
         </div>
         <div className="instruction">
           <h2>INSTRUCTIONS</h2>
-          <ul>
-            {instructions.map((instruction) =>
-              instruction.map((step, index) => <li key={index}>{step}</li>)
-            )}
-          </ul>
+          <ReactPlaceholder
+            ready={!isLoading}
+            type="text"
+            rows={10}
+            color="#d6cdcd"
+            style={{ width: "400px", height: "200px", margin: "20px" }}
+          >
+            <ul>
+              {instructions.map((instruction) =>
+                instruction.map((step, index) => <li key={index}>{step}</li>)
+              )}
+            </ul>
+          </ReactPlaceholder>
         </div>
       </div>
     </div>
