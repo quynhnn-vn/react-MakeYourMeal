@@ -4,6 +4,7 @@ header {
     align-items: center;
     justify-content: space-between;
     background-color: var(--red);
+    max-width: 100%;
     min-height: 100px;
     max-height: fit-content;
 }
@@ -20,8 +21,9 @@ header form {
     margin-bottom: 10px;
 }
 header form input {
-    width: 300px;
     height: 100%;
+    width: 300px;
+    max-width: 70%;
     padding: 0 10px;
     border: solid 1px var(--red);
 }
@@ -56,7 +58,7 @@ header .tags-container .tags-item span:hover {
     color: var(--red);
     text-align: center;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     header {
         flex-direction: column;
         justify-content: center;
@@ -65,9 +67,8 @@ header .tags-container .tags-item span:hover {
         margin-left: 0;
     }
     header .tags-container {
-        justify-content: space-between;
-        row-gap: 5px;
+        justify-content: center;
+        gap: 5px;
         max-width: 70%;
     }
-
 }
