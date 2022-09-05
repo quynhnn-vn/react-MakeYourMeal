@@ -1,40 +1,36 @@
 import "./Search.css";
 import React, { useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCoffee,
-  faCookieBite,
-  faHamburger,
-  faIceCream,
-  faCocktail,
-} from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faCoffee,
+//   faCookieBite,
+//   faHamburger,
+//   faIceCream,
+//   faCocktail,
+// } from "@fortawesome/free-solid-svg-icons";
+import logo from "../../images/logo-full.png";
 
 export const Search = ({ tags }) => {
-  const { page } = useParams();
-  const p = isNaN(page) ? 0 : parseInt(page, 10);
+  //   const { page } = useParams();
+  //   const p = isNaN(page) ? 0 : parseInt(page, 10);
   const [searchTerm, setSearchTerm] = useState("");
-  const renderSearchButton = () => {
-    if (searchTerm) {
-      return (
-          <NavLink className="search" to={`/search/${searchTerm}`}>
-            Search
-          </NavLink>
-      );
-    } else {
-      return <button disabled>Search</button>;
-    }
-  };
+
+  const renderSearchButton = () => (
+    <button className="search" disabled={searchTerm.length === 0}>
+      <NavLink to={`/search/${searchTerm}`}>Search</NavLink>
+    </button>
+  );
 
   return (
     <header>
       <NavLink className="link-home" to={`/home`}>
-        <h1>MAKE YOUR MEAL</h1>
+        <img alt="logo" src={logo} />
       </NavLink>
       <form>
         <input
           type="text"
-          placeholder="What would you like to cook?"
+          placeholder="Search product ..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           onKeyPress={(e) => {
@@ -45,7 +41,7 @@ export const Search = ({ tags }) => {
         />
         {renderSearchButton()}
       </form>
-      <div className="tags-container">
+      {/* <div className="tags-container">
         <NavLink className="tags-item" to={`/tags/${tags.breakfast}/${p + 1}`}>
           <FontAwesomeIcon icon={faCoffee} color="white" size="lg" />
           <span>Breakfast/Brunch</span>
@@ -66,7 +62,7 @@ export const Search = ({ tags }) => {
           <FontAwesomeIcon icon={faCocktail} color="white" size="lg" />
           <span>Drinks</span>
         </NavLink>
-      </div>
+      </div> */}
     </header>
   );
 };

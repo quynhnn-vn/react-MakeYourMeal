@@ -1,0 +1,12 @@
+.carousel {
+  max-height: 500px;
+  /* background-color: var(--gray-bg); */
+}
+.carousel img {
+  max-height: 500px;
+  max-width: 100%;
+  width: 60%;
+  margin: auto;
+  display: block;
+  object-fit: scale-down;
+}

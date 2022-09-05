@@ -41,10 +41,12 @@ function App() {
       </Router>
       <footer>
         Copyright
-        <FontAwesomeIcon icon={faCopyright} color="white" size="2x"/>
-        <a href="https://spoonacular.com/" target="_blank" rel="noreferrer">
-          SPOONACULAR API
-        </a>
+        <FontAwesomeIcon
+          icon={faCopyright}
+          color="var(--gray-border)"
+          size="2x"
+        />
+        2022
       </footer>
     </div>
   );

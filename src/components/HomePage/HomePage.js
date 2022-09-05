@@ -6,6 +6,8 @@ import { NavLink, useParams } from "react-router-dom";
 import ReactPlaceholder from "react-placeholder";
 import "react-placeholder/lib/reactPlaceholder.css";
 import { TextBlock, RectShape } from "react-placeholder/lib/placeholders";
+import Carousel from "../Carousel/Carousel";
+import Product from "../Product/Product";
 
 export const listPlaceholder = (
   <div className="list-placeholder">
@@ -91,58 +93,19 @@ export const HomePage = ({ tags }) => {
 
   return (
     <div>
+      <Carousel />
       <div className="collection" aria-label="collection">
         <h2 className="banner" aria-label="banner">
-          <span>BREAKFAST / BRUNCH </span>
-          <span className="line"></span>
-          <span>
-            <NavLink
-              className="view-more"
-              aria-label="view-more"
-              to={`/tags/${tags.breakfast}/${p + 1}`}
-            >
-              view more breakfast / brunch
-            </NavLink>
-          </span>
+          <span>Featured Products</span>
         </h2>
-        <ReactPlaceholder ready={!isLoading} customPlaceholder={listPlaceholder} showLoadingAnimation={true}>
-          <div className="collection-items">{breakfast}</div>
-        </ReactPlaceholder>
-      </div>
-      <div className="collection" aria-label="collection">
-        <h2 className="banner" aria-label="banner">
-          <span>APPETIZER / SNACK </span>
-          <span className="line"></span>
-          <span>
-            <NavLink
-              className="view-more"
-              aria-label="view-more"
-              to={`/tags/${tags.appetizer}/${p + 1}`}
-            >
-              view more appetizer / snack
-            </NavLink>
-          </span>
-        </h2>
-        <ReactPlaceholder ready={!isLoading} customPlaceholder={listPlaceholder} showLoadingAnimation={true}>
-          <div className="collection-items">{appetizer}</div>
-        </ReactPlaceholder>
-      </div>
-      <div className="collection" aria-label="collection">
-        <h2 className="banner" aria-label="banner">
-          <span>LUNCH / DINNER</span>
-          <span className="line"></span>
-          <span>
-            <NavLink
-              className="view-more"
-              aria-label="view-more"
-              to={`/tags/${tags.lunch}/${p + 1}`}
-            >
-              view more lunch / dinner
-            </NavLink>
-          </span>
-        </h2>
-        <ReactPlaceholder ready={!isLoading} customPlaceholder={listPlaceholder} showLoadingAnimation={true}>
-          <div className="collection-items">{lunch}</div>
+        <ReactPlaceholder
+          ready={!isLoading}
+          customPlaceholder={listPlaceholder}
+          showLoadingAnimation={true}
+        >
+          <div className="collection-items">
+            <Product />
+          </div>
         </ReactPlaceholder>
       </div>
     </div>

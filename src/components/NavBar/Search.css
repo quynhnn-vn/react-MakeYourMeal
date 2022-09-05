@@ -1,74 +1,82 @@
 header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--red);
-    max-width: 100%;
-    min-height: 100px;
-    max-height: fit-content;
+  padding: 20px 5% 0 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary);
+  max-width: 100%;
+  min-height: 100px;
+  max-height: fit-content;
 }
-header .link-home h1 {
-    color: #ffffff;
-    margin-left: 20px;
+header .link-home > img {
+  height: 120px;
+}
 
+header .link-home h1 {
+  color: #ffffff;
+  margin-left: 20px;
 }
 header .link-home h1:hover {
-    color: var(--gold);
+  color: var(--gold);
 }
 header form {
-    height: 40px;
-    margin-bottom: 10px;
+  height: 40px;
+  margin-bottom: 10px;
 }
 header form input {
-    height: 100%;
-    width: 300px;
-    max-width: 70%;
-    padding: 0 10px;
-    border: solid 1px var(--red);
+  height: 100%;
+  width: 300px;
+  max-width: 70%;
+  padding: 0 10px;
+  border: solid 1px var(--gray-border);
+  border-radius: 4px 0 0 4px;
 }
 header form .search {
-    background-color: var(--dark-yellow);
-    color: #ffffff;
-    border: solid 1px var(--dark-yellow);
-    padding: 9px 10px;
+  background-color: var(--green);
+  color: #ffffff;
+  border-radius: 0 4px 4px 0;
+  height: 42px;
+  border: none;
 }
-header form button:disabled {
-    background-color: var(--gray);
-    color: #ffffff;
-    border: solid 1px var(--gray);
-    padding: 10px 10px;
+header form .search a {
+  color: white;
 }
+header form .search:disabled {
+  color: var(--white) !important;
+  background-color: var(--gray-border);
+}
+
 header .tags-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 30%;
-    row-gap: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 30%;
+  row-gap: 10px;
 }
 header .tags-container .tags-item span {
-    margin-left: 5px;
-    text-decoration: none;
-    color: #ffffff;
+  margin-left: 5px;
+  text-decoration: none;
+  color: #ffffff;
 }
 header .tags-container .tags-item span:hover {
-    color: var(--gold);
+  color: var(--gold);
 }
 .error {
-    color: var(--red);
-    text-align: center;
+  color: var(--red);
+  text-align: center;
 }
 @media only screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        justify-content: center;
-    }
-    header .link-home h1 {
-        margin-left: 0;
-    }
-    header .tags-container {
-        justify-content: center;
-        gap: 5px;
-        max-width: 70%;
-    }
+  header {
+    flex-direction: column;
+    justify-content: center;
+  }
+  header .link-home h1 {
+    margin-left: 0;
+  }
+  header .tags-container {
+    justify-content: center;
+    gap: 5px;
+    max-width: 70%;
+  }
 }
